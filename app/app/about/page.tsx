@@ -28,28 +28,28 @@ export const metadata: Metadata = {
 
 const timelineEvents = [
   {
-    year: '2022',
-    title: 'The Founding Vision',
-    description: 'Recognized the disconnect between business success and societal wellbeing. Started researching systematic solutions to interconnected social challenges.',
-    milestone: 'Research Phase'
+    year: 'Jan 2025',
+    title: 'The Founding Moment',
+    description: 'After extensive research into systematic social challenges, we made the decision to build a business that directly addresses interconnected problems rather than just talking about them.',
+    milestone: 'Concept to Company'
   },
   {
-    year: '2023',
-    title: 'Community Formation',
-    description: 'Began building our first community of families interested in transparent wealth-building and mutual support networks.',
-    milestone: '50+ Founding Families'
+    year: 'Feb 2025',
+    title: 'Founder Acquisition Phase',
+    description: 'Currently seeking co-founders and early team members who share our vision for mission-driven business and systematic change.',
+    milestone: 'Building the Core Team'
   },
   {
-    year: '2024',
-    title: 'Framework Development',
-    description: 'Developed and tested the Generational Wealth Framework with pilot families, achieving measurable financial improvements.',
-    milestone: '200+ Beta Users'
+    year: 'Q2 2025',
+    title: 'Beta Community Launch',
+    description: 'Planning to launch our beta community with the first 50 families who want to test transparent wealth-building frameworks.',
+    milestone: 'First Beta Cohort'
   },
   {
-    year: '2025',
-    title: 'Scaling Impact',
-    description: 'Expanded our reach while maintaining transparency and community-first values. Launched comprehensive approach to all five pillars.',
-    milestone: '1,200+ Families Served'
+    year: 'Q3 2025',
+    title: 'Framework Validation',
+    description: 'Working with our beta community to test and refine the Generational Wealth Framework before broader launch.',
+    milestone: 'Product-Market Fit'
   }
 ]
 
@@ -92,7 +92,7 @@ const teamMembers = [
     name: 'Alex Thompson',
     role: 'Founder & CEO',
     bio: 'Former financial advisor who became frustrated with industry practices that excluded middle-class families from wealth-building opportunities.',
-    image: '/images/team/alex-thompson.jpg',
+    image: '/images/team/founder-ceo.jpg',
     whyImHere: 'I started Bondspire because I saw too many families excluded from financial opportunities simply because they weren\'t already wealthy. Business should create opportunity, not gatekeep it.',
     linkedIn: 'https://linkedin.com/in/alexthompsonbondspire',
     twitter: 'https://twitter.com/alexbondspire'
@@ -102,7 +102,7 @@ const teamMembers = [
     name: 'Maria Rodriguez',
     role: 'Director of Community',
     bio: 'Community organizer with 15 years of experience building grassroots movements and fostering authentic local connections.',
-    image: '/images/team/maria-rodriguez.jpg',
+    image: '/images/team/community-manager.jpg',
     whyImHere: 'Real change happens when people connect authentically. I\'m here to ensure every family feels genuinely supported and heard in our community.',
     linkedIn: 'https://linkedin.com/in/mariarodriguezbondspire'
   },
@@ -111,7 +111,7 @@ const teamMembers = [
     name: 'David Chen',
     role: 'Head of Transparency & Impact',
     bio: 'Former nonprofit financial analyst specializing in impact measurement and transparent reporting for mission-driven organizations.',
-    image: '/images/team/david-chen.jpg',
+    image: '/images/team/research-specialist.jpg',
     whyImHere: 'Transparency isn\'t just a buzzword—it\'s how we build trust. I\'m here to ensure every number we share tells the truth about our impact.',
     linkedIn: 'https://linkedin.com/in/davidchenbondspire'
   },
@@ -120,7 +120,7 @@ const teamMembers = [
     name: 'Sarah Kim',
     role: 'Product Development Lead',
     bio: 'UX designer and educator focused on making complex financial concepts accessible to everyday families without diluting their power.',
-    image: '/images/team/sarah-kim.jpg',
+    image: '/images/team/founder-ceo.jpg',
     whyImHere: 'Financial education shouldn\'t require an MBA to understand. I\'m here to make wealth-building accessible to every family, regardless of background.',
     linkedIn: 'https://linkedin.com/in/sarahkimbondspire'
   }

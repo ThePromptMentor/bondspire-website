@@ -8,34 +8,33 @@ import type { ImpactMetric } from '@/lib/types'
 
 const metricsData: ImpactMetric[] = [
   {
-    label: 'Families Served',
-    value: 1247,
-    suffix: '+',
+    label: 'Beta Families',
+    value: 47,
+    suffix: '',
     animationDelay: 0
   },
   {
-    label: 'Community Connections Made',
-    value: 3890,
-    suffix: '+',
+    label: 'Community Members',
+    value: 23,
+    suffix: '',
     animationDelay: 200
   },
   {
-    label: 'Wealth Created',
-    value: 2400000,
-    prefix: '$',
-    suffix: '+',
+    label: 'Framework Tests',
+    value: 12,
+    suffix: '',
     animationDelay: 400
   },
   {
-    label: 'Problems Solved',
-    value: 156,
+    label: 'Research Hours',
+    value: 850,
     suffix: '+',
     animationDelay: 600
   },
   {
-    label: 'Community Events',
-    value: 89,
-    suffix: '+',
+    label: 'Pilot Programs',
+    value: 3,
+    suffix: '',
     animationDelay: 800
   }
 ]
@@ -116,8 +115,8 @@ interface ImpactMetricsProps {
 
 export default function ImpactMetrics({ 
   className,
-  title = "Our Impact by the Numbers",
-  subtitle = "Real change requires measurable results. Here's the impact we've created together with our community."
+  title = "Our Progress So Far",
+  subtitle = "We're in our early stages, but every journey starts with first steps. Here's what we're building together."
 }: ImpactMetricsProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
@@ -186,17 +185,17 @@ export default function ImpactMetrics({
         >
           <div className="bg-white rounded-lg p-6 md:p-8 shadow-lg max-w-4xl mx-auto">
             <h3 className="font-montserrat font-bold text-xl text-midnight-navy mb-4">
-              Transparency in Measurement
+              Building with Transparency
             </h3>
             <p className="text-slate-gray leading-relaxed mb-4">
-              We believe in radical transparency about our impact. These numbers represent real families, 
-              real communities, and real change. Every metric is independently verified and regularly audited 
-              to ensure accuracy and authenticity.
+              Even in our startup phase, we're committed to radical transparency. These numbers represent 
+              real people joining our mission and real progress toward systematic solutions. Every metric 
+              tracks meaningful engagement as we grow.
             </p>
             <p className="text-sm text-slate-gray">
-              <strong className="text-midnight-navy">Last updated:</strong> January 2025 | 
-              <strong className="text-midnight-navy"> Next update:</strong> April 2025 | 
-              <a href="/transparency" className="text-bond-blue hover:underline">View detailed reports</a>
+              <strong className="text-midnight-navy">Started:</strong> January 2025 | 
+              <strong className="text-midnight-navy"> Next milestone:</strong> 100 community members | 
+              <a href="/about" className="text-bond-blue hover:underline">Learn about our journey</a>
             </p>
           </div>
         </div>

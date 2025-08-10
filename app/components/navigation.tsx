@@ -144,7 +144,7 @@ export default function Navigation({ transparent = false, fixed = true, classNam
             >
               <div className="relative w-8 h-8 md:w-10 md:h-10">
                 <Image
-                  src="/images/logo/bondspire-logo.svg"
+                  src="/images/logo/bondspire-logo.png"
                   alt="Bondspire"
                   fill
                   className="object-contain"

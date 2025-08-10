@@ -24,8 +24,8 @@ const pillarsData: PillarData[] = [
     icon: 'DollarSign',
     problem: '40% of Americans can\'t cover a $400 emergency, while wealth concentration grows.',
     solution: 'Transparent, accessible frameworks that demystify wealth building for everyday families.',
-    impact: 'Financial empowerment for 1,000+ families through our pilot programs.',
-    progress: 23
+    impact: 'Framework development and beta testing with initial community members.',
+    progress: 5
   },
   {
     id: 'information-integrity',
@@ -35,8 +35,8 @@ const pillarsData: PillarData[] = [
     icon: 'Shield',
     problem: '73% of Americans struggle to identify reliable information sources.',
     solution: 'Transparency-first business practices and information integrity tools.',
-    impact: 'Community education programs reaching 500+ individuals monthly.',
-    progress: 18
+    impact: 'Transparency research and early community engagement initiatives.',
+    progress: 3
   },
   {
     id: 'community-resilience',
@@ -46,8 +46,8 @@ const pillarsData: PillarData[] = [
     icon: 'Users',
     problem: 'Social isolation affects 35% of adults, weakening community support systems.',
     solution: 'Programs that foster genuine local connections and mutual aid networks.',
-    impact: 'Community events and programs strengthening 12+ local networks.',
-    progress: 31
+    impact: 'Community building research and initial networking events planning.',
+    progress: 7
   },
   {
     id: 'political-transparency',
@@ -57,8 +57,8 @@ const pillarsData: PillarData[] = [
     icon: 'Eye',
     problem: '58% of citizens feel disconnected from political decision-making processes.',
     solution: 'Transparency advocacy and citizen engagement tools.',
-    impact: 'Policy research and advocacy initiatives supporting democratic participation.',
-    progress: 12
+    impact: 'Early research into transparency tools and civic engagement platforms.',
+    progress: 2
   },
   {
     id: 'educational-access',
@@ -68,8 +68,8 @@ const pillarsData: PillarData[] = [
     icon: 'GraduationCap',
     problem: 'Student debt exceeds $1.7T while many valuable skills aren\'t taught.',
     solution: 'Alternative learning pathways focused on practical skills and outcomes.',
-    impact: 'Educational frameworks serving 200+ learners across diverse backgrounds.',
-    progress: 27
+    impact: 'Alternative learning pathway research and initial curriculum development.',
+    progress: 4
   }
 ]
 
@@ -307,8 +307,13 @@ export default function FivePillars({ showAsPreview = false, className }: FivePi
         </div>
 
         {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-8">
-          {(showAsPreview ? pillarsData.slice(0, 3) : pillarsData).map((pillar, index) => (
+        <div className={cn(
+          showAsPreview 
+            ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+            : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 lg:gap-8"
+        )}>
+          {/* First 4 pillars in 2x2 grid for full view */}
+          {(showAsPreview ? pillarsData.slice(0, 3) : pillarsData.slice(0, 4)).map((pillar, index) => (
             <PillarCard
               key={pillar.id}
               pillar={pillar}
@@ -318,6 +323,21 @@ export default function FivePillars({ showAsPreview = false, className }: FivePi
             />
           ))}
         </div>
+
+        {/* 5th pillar centered below when showing all */}
+        {!showAsPreview && (
+          <div className="flex justify-center mt-6 lg:mt-8">
+            <div className="w-full md:w-1/2 lg:w-2/5 xl:w-1/3">
+              <PillarCard
+                key={pillarsData[4].id}
+                pillar={pillarsData[4]}
+                isExpanded={expandedPillar === pillarsData[4].id}
+                onToggle={() => togglePillar(pillarsData[4].id)}
+                index={4}
+              />
+            </div>
+          </div>
+        )}
 
         {/* Additional Info for Full View */}
         {!showAsPreview && (
