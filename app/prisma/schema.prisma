@@ -1,0 +1,88 @@
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/bondspire-website/app/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+// Form submissions for contact, partnership, and other inquiries
+model FormSubmission {
+  id                Int      @id @default(autoincrement())
+  name             String
+  email            String
+  phone            String?
+  subject          String?
+  message          String
+  howDidYouHear    String?
+  formType         String   @default("contact") // 'contact', 'partnership', 'early-access'
+  organizationName String?
+  website          String?
+  partnershipType  Json?    // Array of partnership types
+  timestamp        DateTime @default(now())
+  status           String   @default("new") // 'new', 'in-progress', 'completed', 'archived'
+  
+  @@map("form_submissions")
+}
+
+// Newsletter subscriptions
+model NewsletterSubscription {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  firstName    String?
+  interestArea String   @default("all") // 'financial', 'community', 'education', 'all'
+  subscribedAt DateTime @default(now())
+  status       String   @default("active") // 'active', 'unsubscribed', 'bounced'
+  source       String   @default("website") // 'website', 'event', 'referral'
+  
+  @@map("newsletter_subscriptions")
+}
+
+// Community member profiles (for future expansion)
+model CommunityMember {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  firstName    String?
+  lastName     String?
+  location     String?
+  memberSince  DateTime @default(now())
+  memberType   String   @default("free") // 'free', 'premium', 'partner'
+  status       String   @default("active") // 'active', 'inactive', 'suspended'
+  
+  @@map("community_members")
+}
+
+// Impact metrics tracking
+model ImpactMetric {
+  id          Int      @id @default(autoincrement())
+  metric      String   // 'families_served', 'wealth_created', etc.
+  value       Float
+  period      String   // 'monthly', 'quarterly', 'annual'
+  recordedAt  DateTime @default(now())
+  source      String?  // Data source or calculation method
+  
+  @@map("impact_metrics")
+}
+
+// Event registrations
+model EventRegistration {
+  id         Int      @id @default(autoincrement())
+  eventId    String   // Event identifier
+  eventTitle String
+  name       String
+  email      String
+  phone      String?
+  eventDate  DateTime
+  eventType  String   // 'workshop', 'meetup', 'conference'
+  location   String?
+  status     String   @default("registered") // 'registered', 'attended', 'cancelled'
+  
+  @@map("event_registrations")
+}
