@@ -9,55 +9,12 @@ import { cn } from '@/lib/utils'
 import type { NavigationItem } from '@/lib/types'
 
 const navigationData: NavigationItem[] = [
-  {
-    label: 'About Us',
-    href: '/about',
-    children: [
-      { label: 'Our Story', href: '/about#our-story' },
-      { label: 'Mission & Values', href: '/about#mission-values' },
-      { label: 'The Five Pillars', href: '/about#five-pillars' },
-      { label: 'Team', href: '/about#team' }
-    ]
-  },
-  {
-    label: 'What We Do',
-    href: '/what-we-do',
-    children: [
-      { label: 'Financial Inequality Solutions', href: '/what-we-do/financial-inequality' },
-      { label: 'Information Integrity Tools', href: '/what-we-do/information-integrity' },
-      { label: 'Community Resilience Programs', href: '/what-we-do/community-resilience' },
-      { label: 'Political Transparency Initiatives', href: '/what-we-do/political-transparency' },
-      { label: 'Educational Access Platforms', href: '/what-we-do/educational-access' }
-    ]
-  },
-  {
-    label: 'Products',
-    href: '/products',
-    children: [
-      { label: 'The Generational Wealth Framework', href: '/products#wealth-framework' },
-      { label: 'Coming Soon', href: '/products#coming-soon' },
-      { label: 'Request Early Access', href: '/products#early-access' }
-    ]
-  },
-  {
-    label: 'Resources',
-    href: '/resources',
-    children: [
-      { label: 'Blog', href: '/resources/blog' },
-      { label: 'Research & Reports', href: '/resources/research' },
-      { label: 'Success Stories', href: '/resources/success-stories' },
-      { label: 'FAQ', href: '/resources/faq' }
-    ]
-  },
-  {
-    label: 'Community',
-    href: '/community',
-    children: [
-      { label: 'Join Us', href: '/community#join-us' },
-      { label: 'Events', href: '/community#events' },
-      { label: 'Partner With Us', href: '/community#partner' }
-    ]
-  },
+  { label: 'About Us', href: '/about' },
+  { label: 'What We Do', href: '/what-we-do' },
+  { label: 'Products', href: '/products' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'Community', href: '/community' },
+  { label: 'Impact', href: '/impact' },
   { label: 'Contact', href: '/contact' }
 ]
 
@@ -162,67 +119,16 @@ export default function Navigation({ transparent = false, fixed = true, classNam
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">
               {navigationData.map((item) => (
-                <div key={item.label} className="relative group">
-                  {item.children ? (
-                    <>
-                      <button
-                        className={cn(
-                          "nav-link px-3 py-2 rounded-md flex items-center space-x-1",
-                          isTransparent ? "text-white hover:text-sky-tint" : "text-midnight-navy hover:text-bond-blue"
-                        )}
-                        onMouseEnter={() => setActiveDropdown(item.label)}
-                        onMouseLeave={() => setActiveDropdown(null)}
-                        onFocus={() => setActiveDropdown(item.label)}
-                        onBlur={(e) => {
-                          // Only close if focus is moving outside the dropdown
-                          if (!e.currentTarget.parentElement?.contains(e.relatedTarget)) {
-                            setActiveDropdown(null)
-                          }
-                        }}
-                        aria-expanded={activeDropdown === item.label}
-                        aria-haspopup="true"
-                      >
-                        <span>{item.label}</span>
-                        <ChevronDown className={cn(
-                          "w-4 h-4 transition-transform duration-200",
-                          activeDropdown === item.label && "rotate-180"
-                        )} />
-                      </button>
-                      
-                      {/* Dropdown Menu */}
-                      <div
-                        className={cn(
-                          "absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50",
-                          "opacity-0 invisible transform -translate-y-2 transition-all duration-200",
-                          activeDropdown === item.label && "opacity-100 visible translate-y-0"
-                        )}
-                        onMouseEnter={() => setActiveDropdown(item.label)}
-                        onMouseLeave={() => setActiveDropdown(null)}
-                      >
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="block px-4 py-2 text-sm text-midnight-navy hover:text-bond-blue hover:bg-sky-tint transition-colors duration-200"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "nav-link px-3 py-2 rounded-md",
-                        isTransparent ? "text-white hover:text-sky-tint" : "text-midnight-navy hover:text-bond-blue"
-                      )}
-                    >
-                      {item.label}
-                    </Link>
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={cn(
+                    "nav-link px-3 py-2 rounded-md",
+                    isTransparent ? "text-white hover:text-sky-tint" : "text-midnight-navy hover:text-bond-blue"
                   )}
-                </div>
+                >
+                  {item.label}
+                </Link>
               ))}
               
               {/* CTA Button */}
@@ -260,43 +166,13 @@ export default function Navigation({ transparent = false, fixed = true, classNam
           <div className="h-full overflow-y-auto px-4 py-6">
             {navigationData.map((item) => (
               <div key={item.label} className="mb-4">
-                {item.children ? (
-                  <>
-                    <button
-                      className="w-full text-left font-montserrat font-semibold text-midnight-navy py-2 flex items-center justify-between"
-                      onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                      aria-expanded={activeDropdown === item.label}
-                    >
-                      {item.label}
-                      <ChevronDown className={cn(
-                        "w-4 h-4 transition-transform duration-200",
-                        activeDropdown === item.label && "rotate-180"
-                      )} />
-                    </button>
-                    {activeDropdown === item.label && (
-                      <div className="pl-4 mt-2 space-y-2">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="block py-2 text-slate-gray hover:text-bond-blue transition-colors duration-200"
-                            onClick={toggleMobileMenu}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="block font-montserrat font-semibold text-midnight-navy py-2 hover:text-bond-blue transition-colors duration-200"
-                    onClick={toggleMobileMenu}
-                  >
-                    {item.label}
-                  </Link>
-                )}
+                <Link
+                  href={item.href}
+                  className="block font-montserrat font-semibold text-midnight-navy py-2 hover:text-bond-blue transition-colors duration-200"
+                  onClick={toggleMobileMenu}
+                >
+                  {item.label}
+                </Link>
               </div>
             ))}
             

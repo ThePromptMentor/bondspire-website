@@ -29,7 +29,7 @@ export default function HomePage() {
         backgroundImage="/images/hero/community-building-hero.jpg"
         primaryCta={{ text: "Discover Our Mission", href: "/about" }}
         secondaryCta={{ text: "Join the Movement", href: "/community" }}
-        showVideo={true}
+        showVideo={false}
       />
 
       {/* The Five Pillars Preview */}
